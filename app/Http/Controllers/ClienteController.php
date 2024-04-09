@@ -22,26 +22,23 @@ class ClienteController extends Controller
                 'cpf' => $cliente->cpf,
                 'endereco' => $cliente->endereco,
                 'password' => Hash::make($cliente->password),
-                'imagem' => asset('storage/' . $cliente->imagem)
-
+                'imagem' => asset('storage/' . $cliente->imagem),
             ];
         });
-
         return response()->json($clienteComImagem);
     }
-
-    public function storeCliente(ClienteRequest $request)
+    public function storeCliente(Request $request)
     {
 
-        $produtoData = $request->all();
-
+        $clienteData = $request->all();
+        return $clienteData;
         if ($request->hasFile('imagem')) {
             $imagem = $request->file('imagem');
             $nomeImagem = time() . '.' . $imagem->getClientOriginalExtension();
-            $caminhoImagem = $imagem->storeAs('imagens/produtos', $nomeImagem, 'public');
-            $produtoData['imagem'] = $caminhoImagem;
+            $caminhoImagem = $imagem->storeAs('imagens/clientes', $nomeImagem, 'public');
+            $clienteData['imagem'] = $caminhoImagem;
         }
-        $produto = CadastroCliente::create($produtoData);
-        return response()->json(['produto' => $produto], 201);
+        $cliente = CadastroCliente::create($clienteData);
+        return response()->json(['cliente' => $cliente], 201);
     }
 }
