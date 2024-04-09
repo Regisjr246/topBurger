@@ -11,7 +11,7 @@ class ClienteController extends Controller
 {
 
 
-    public function cadastroCliente(ClienteRequest $request)
+    public function cadastroCliente( )
     {
         $cliente = CadastroCliente::all();
         $clienteComImagem = $cliente->map(function ($cliente) {
@@ -30,7 +30,7 @@ class ClienteController extends Controller
         return response()->json($clienteComImagem);
     }
 
-    public function storeCliente(Request $request)
+    public function storeCliente(ClienteRequest $request)
     {
 
         $produtoData = $request->all();

@@ -11,7 +11,7 @@ class ClienteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class ClienteRequest extends FormRequest
             'cpf' => 'required|unique:cadastro_clientes,cpf|max:11|min:11',
             'endereco' => 'required|max:120',
              'password' => 'required',
-             'imagem'=>''
+      
         ];
     }
     
