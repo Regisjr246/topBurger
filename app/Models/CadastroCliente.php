@@ -8,19 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CadastroCliente extends Model
 {
     use HasFactory;
-
-
-
-
-
-
     protected $fillable=[
         'nome',
         'telefone',
         'email',
         'cpf',
         'endereco',
-        'Password',
+        'password',
         'imagem',
     
     ];
