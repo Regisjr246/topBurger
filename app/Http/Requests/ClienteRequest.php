@@ -23,11 +23,11 @@ class ClienteRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5',
-            'telefone' => 'required|unique:cadastro_clientes,telefone|max:11|min:10',
+            'telefone' => 'required|max:11|min:11',
             'email' => 'required|unique:cadastro_clientes,email|max:120',
             'cpf' => 'required|unique:cadastro_clientes,cpf|max:11|min:11',
             'endereco' => 'required|max:120',
-             'password' => 'required|',
+             'password' => 'required',
              'imagem'=>''
         ];
     }
@@ -35,7 +35,31 @@ class ClienteRequest extends FormRequest
     public function messages()
     {
         return [
-          
+            'nome.required' => 'O campo nome é obrigatorio',
+            'nome.max' => 'O campo nome deve conter  no maximo 120 caracteres',
+            'nome.min' => 'O campo nome deve conter no minimo 5 caracteres',
+
+            'endereco.required' => 'O campo endereco é obrigatorio',
+            'endereco.max' => 'O campo endereco deve conter  no maximo 120 caracteres',
+            'endereco.required' => 'O campo endereco é obrigatório',
+
+            //CELULAR
+            'telefone.required' => 'O campo telefone é obrigatorio',
+            'telefone.min' => 'O campo telefone deve conter no minimo 11caracteres',
+            'telefone.max' => 'O campo telefone deve conter no maximo 11 caracteres',
+            
+
+            //EMAIL
+            'email.required' => 'O email celular é obrigatorio',
+            'email.unique' => 'Email já cadastrado informe outro email',
+            'email.max' => 'O email celular de conter 120 caracteres',
+
+            //CPF
+            'cpf.required' => 'O campo cpf é obrigatorio',
+            'cpf.max' => 'O campo cpf deve ter no maximo 11 caracteres',
+            'cpf.min' => 'O campo cpf deve ter no mainimo 11 caracteres',
+            'cpf.unique' => 'Cpf já cadastrado, informe outro cpf',
+
         ];
     }
 }
