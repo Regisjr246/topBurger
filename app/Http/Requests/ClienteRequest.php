@@ -42,7 +42,7 @@ class ClienteRequest extends FormRequest
             'endereco.required' => 'O campo endereco é obrigatorio',
             'endereco.max' => 'O campo endereco deve conter  no maximo 120 caracteres',
             'endereco.required' => 'O campo endereco é obrigatório',
-
+            'imagem.required' => 'O campo endereco é obrigatório',
             //CELULAR
             'telefone.required' => 'O campo telefone é obrigatorio',
             'telefone.min' => 'O campo telefone deve conter no minimo 11caracteres',
