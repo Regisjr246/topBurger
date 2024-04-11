@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdutoRequest;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public function index()
+    public function ListagemProduto()
     {
         $produtos = Produto::all();
         $produtosComImagem = $produtos->map(function ($produto) {
             return [
+                'id' => $produto->id,
                 'nome' => $produto->nome,
-                'preco' => $produto->preco,
-                'ingredientes' => $produto->ingredeintes,
+                'ingredientes' => $produto->ingredientes,
+                'valor' => $produto->preco,
                 'imagem' => asset('storage/' .  $produto->imagem),
             ];
         });
         return response()->json($produtosComImagem);
     }
-    public function store(Request $request)
+    public function CadastroProduto(ProdutoRequest $request)
     {
         $produtoData = $request->all();
         if ($request->hasFile('imagem')) {
