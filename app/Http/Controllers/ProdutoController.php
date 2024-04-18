@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public function ListagemProduto()
+    public function ListagemProduto()                                       
     {
         $produtos = Produto::all();
         $produtosComImagem = $produtos->map(function ($produto) {
