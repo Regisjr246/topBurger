@@ -9,5 +9,5 @@ Route::get('/produtos',[ProdutoController::class, 'ListagemProduto']);
 
 Route::post('/produtos',[ProdutoController::class, 'CadastroProduto']);
 
-Route::post('clientes/cadastro',[ClienteController::class, 'storeCliente']);
-Route::get('clientes/cadastro',[ClienteController::class, 'CadastroCliente']);
+Route::post('clientes/cadastro',[ClienteController::class, 'CadatroClidnte']);
+Route::get('clientes/cadastro',[ClienteController::class, 'listagemCliente']);
